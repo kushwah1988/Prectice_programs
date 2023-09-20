@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sign Up</title>
+	<script>  
+		function validateform(){  
+		var name=document.myform.name.value;  
+		var password=document.myform.password.value;
+		var repeat_password=document.myform.repeat_password.value;
+		var email=document.myform.email.value;
+		  
+		if (name==null || name==""){  
+		  alert("Name can't be blank");  
+		  return false;  
+		}else if(password.length<6){  
+		  alert("Password must be at least 6 characters long.");  
+		  return false;  
+		}  
+		if(password==repeat_password){  
+			return true;  
+			}  
+			else{  
+			alert("password must be same!");  
+			return false;  
+			} 
+		}	    
+</script>  
+</head>
+<body align="center">
+
+	<form name="myform" method="post" onsubmit="return validateform()" >
+		
+		<div class="container">
+			<h2>Signup</h2>
+
+			<p>Please fill in this form to create an account</p>
+			<hr>
+			<label for="name"><b>Name<b/></label>	
+			<input type="text" placeholder="Enter Name" name="name" ><br>
+			<label for="email"><b>Email<b/></label>	
+			<input type="email" placeholder="Enter Email" name="email" ><br>
+			<label for="password"><b>Password<b/></label>	
+			<input type="password" placeholder="Enter Password" name="password" ><br>
+			<label for="repeat_password"><b>Repeat Password<b/></label>	
+			<input type="password" placeholder="Enter Repeat Password" name="repeat_password" ><br>
+			<label>
+				<input type="checkbox" checked="checked" name="remember">
+				<b>Remember me<b/></label>
+			<p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+			
+    	<div class="clearfix">
+      	<button type="button" class="cancelbtn">Cancel</button>
+      	<button type="submit" class="signupbtn" value="signup" onclick="create">Sign Up</button>
+    	</div>
+		</div>
+	</form>
+	
+
+
+</body>
+</html>

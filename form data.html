@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Form Data</title>
+	<style type="text/css">
+		*{box-sizing: border-box;}
+		html,body{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			margin: 10px 50px;
+		}
+		.form-group{
+			margin: 10px;
+		}
+
+		input{
+			width: 50%;
+			border: solid 1px grey ;
+			padding: 10px 10px;
+		}
+		.req{
+			color: red;
+		}
+		button{
+			width: 150px;
+			padding: 15px;
+			margin-left: 200px;
+			margin-top: 20px;
+			border-radius: 30px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>SignUp Form</h2>
+		<form role="form" onsubmit="signUp(event);" >
+			<div class="form-group">First Name<span class="req">*</span>:<br>
+				<input type="text" name="first_name" id="first_name" placeholder="Enter First Name" required autocomplete="off">
+			</div>
+			<div class="form-group">last Name<span class="req">*</span>:<br>
+				<input type="text" name="last_name" id="last_name" placeholder="Enter Last Name" required>
+			</div>
+			<div class="form-group">Mobile No<span class="req">*</span>:<br>
+				<input type="tel" name="mobile_no" id="mobile_no" placeholder="Enter Mobile No" required>
+			</div>
+			<div class="form-group">Email Id<span class="req">*</span>:<br>
+				<input type="email" name="email" id="email" placeholder="Enter Email Id" required autocomplete="off">
+			</div>
+			<div class="form-group">Password<span class="req">*</span>:<br>
+				<input type="password" name="password" id="password" placeholder="Enter Password" required>
+			</div>
+			<div class="form-group">Confirm Password<span class="req">*</span>:<br>
+				<input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" required>
+			</div>
+			<div class="form-group">
+				<button type="submit" >Sign Up</button>
+			</div>
+		</form>
+	</div>
+		<script type="text/javascript">
+			const signUp = e =>{
+				let formData = {
+				
+					first_name: document.getElementById("first_name").value,
+					last_name: document.getElementById("last_name").value,
+					mobile_no: document.getElementById("mobile_no").value,
+					email_id: document.getElementById("email_id").value,
+					password: document.getElementById("password").value,
+					cpassword: document.getElementById("cpassword").value
+					}
+				localStorage.setItem('formData',JSON.stringify(formData));
+				console.log(localStorage.getItem('formData'));
+				e.praventDefauld();
+			}		
+		</script>
+</body>
+</html>
